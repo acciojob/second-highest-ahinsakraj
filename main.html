@@ -7,20 +7,33 @@
 </head>
 
 <body>	
-	<script>
+<script>
 		function secondHighest(arr) {
 			//Write your code here
 			
+			let highest=-Infinity;
+			let sHighest=-Infinity;
+			for(let i=0;i<arr.length;i++){
+				if(highest<arr[i]){
+					sHighest=highest;
+					highest=arr[i];
+				}
+				else if(sHighest<arr[i] && arr[i]!=highest)sHighest=arr[i];
+			}
+			return sHighest;
 		}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
+			
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = Number(prompt("Enter element " + (i+1)));
 			}
 			alert(secondHighest(arr));
 		}
+
+	
 		Main();
 	</script>
 
